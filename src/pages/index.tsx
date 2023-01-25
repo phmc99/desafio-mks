@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useQuery } from 'react-query';
 import { Container } from '../components/Container/style';
 import Header from '../components/Header';
+import ProductList from '../components/ProductList';
 import { getAllProducts } from '../services/products';
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       </Head>
       <Container>
         <Header />
-        {JSON.stringify(data)}
+        <ProductList />
       </Container>
     </div>
   );
