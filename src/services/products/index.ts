@@ -1,6 +1,8 @@
 import { api } from '../api';
 
 export const getAllProducts = async (page = 1, rows = 8) => {
-  const { data } = await api.get(`/products?page=${page}&rows=${rows}`);
+  const { data } = await api.get(
+    `/products?page=${page}&rows=${rows}&sortBy=id&orderBy=DESC`,
+  );
   return data;
 };
