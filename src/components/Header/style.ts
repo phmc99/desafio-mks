@@ -29,4 +29,5 @@ export const HeaderCartButton = styled.button`
   align-items: center;
   justify-content: space-evenly;
   font-weight: 700;
+  cursor: pointer;
 `;

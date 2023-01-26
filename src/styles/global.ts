@@ -55,4 +55,35 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #0F52BA;
+  border: 0px none #ffffff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(15,82,220);
+
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(15,42,140);
+
+}
+::-webkit-scrollbar-track {
+  background: #9e9e9e;
+  border: 0px none #fff;
+}
+
+::-webkit-scrollbar-track:active {
+  background: #9e9e9e;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
 `;

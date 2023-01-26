@@ -2,13 +2,17 @@ import React from 'react';
 import { HeaderCartButton, HeaderContainer, HeaderLogo } from './style';
 import { HiShoppingCart } from 'react-icons/hi';
 
-const Header = () => {
+interface HeaderProps {
+  setToggle: () => void;
+}
+
+const Header = ({ setToggle }: HeaderProps) => {
   return (
     <HeaderContainer>
       <HeaderLogo>
         <span className="mks">MKS</span> Sistemas
       </HeaderLogo>
-      <HeaderCartButton>
+      <HeaderCartButton onClick={setToggle}>
         <HiShoppingCart /> 0
       </HeaderCartButton>
     </HeaderContainer>

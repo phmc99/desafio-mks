@@ -10,7 +10,7 @@ export const theme = {
     sm: '0.875rem',
     md: '1rem',
     lg: '1.25rem',
-    xl: '2rem',
+    xl: '1.8rem',
   },
   spacing: {
     xs: '0.25rem',
