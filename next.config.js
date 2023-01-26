@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['prd.place', process.env.API_URL],
+    domains: ['prd.place', process.env.NEXT_PUBLIC_DOMAIN_URL],
   },
 };
 
