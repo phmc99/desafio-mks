@@ -37,6 +37,8 @@ export const CartListItemContainer = styled.li`
     }
 
     h1 {
+      width: 130px;
+
       display: -webkit-box !important;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -52,6 +54,7 @@ export const CartListItemQuantityPrice = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 
   @media (min-width: 1024px) {
+    width: 45%;
     gap: ${({ theme }) => theme.spacing.sm};
   }
 `;
@@ -89,11 +92,14 @@ export const CartListItemPrice = styled.div`
   border-radius: ${({ theme }) => theme.spacing.sm};
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSize.md};
+  width: 45%;
+  overflow: hidden;
 
   @media (min-width: 1024px) {
     background-color: transparent;
     color: black;
     font-weight: 700;
+    width: 35%;
   }
 `;
 
