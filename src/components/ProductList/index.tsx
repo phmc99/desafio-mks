@@ -3,11 +3,16 @@ import { ProductListContainer } from './style';
 import { useQuery } from 'react-query';
 import { getAllProducts } from '../../services/products';
 import { ErrorContainer } from '../Feedbacks/style';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { getLocalStorageData } from '../../store/cart';
 
 const ProductList = () => {
-  const { data, isLoading, error } = useQuery(['products'], () =>
-    getAllProducts(),
-  );
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, isLoading, error } = useQuery(['products'], () => {
+    dispatch(getLocalStorageData());
+    return getAllProducts();
+  });
   const emptyArray = new Array(8).fill(undefined);
 
   return (

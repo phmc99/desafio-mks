@@ -6,10 +6,13 @@ import {
   AnyAction,
 } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
+import { cartSlice } from './cart';
 
 const makeStore = () =>
   configureStore({
-    reducer: {},
+    reducer: {
+      [cartSlice.name]: cartSlice.reducer,
+    },
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

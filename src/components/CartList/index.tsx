@@ -1,4 +1,5 @@
-import { ICartProduct } from '../../types';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store';
 import CartListItem from '../CartListItem';
 import {
   CartListCheckoutButton,
@@ -14,6 +15,8 @@ interface CartListProps {
 }
 
 const CartList = ({ setToggle }: CartListProps) => {
+  const { cart, total } = useSelector((state: AppState) => state.cart);
+
   return (
     <CartListContainer>
       <CartListHeader>
@@ -21,16 +24,15 @@ const CartList = ({ setToggle }: CartListProps) => {
         <CartListCloseButton onClick={setToggle}>X</CartListCloseButton>
       </CartListHeader>
       <CartListUl>
-        <CartListItem product={{} as ICartProduct} />
-        <CartListItem product={{} as ICartProduct} />
-        <CartListItem product={{} as ICartProduct} />
-        <CartListItem product={{} as ICartProduct} />
-        <CartListItem product={{} as ICartProduct} />
-        <CartListItem product={{} as ICartProduct} />
+        {cart.length > 0 ? (
+          cart.map(item => <CartListItem product={item} key={item.id} />)
+        ) : (
+          <h3>Carrinho vazio</h3>
+        )}
       </CartListUl>
       <CartListTotal>
         <h1>Total:</h1>
-        <h1>R$798</h1>
+        <h1>R${Number(total).toFixed()}</h1>
       </CartListTotal>
       <CartListCheckoutButton>Finalizar Compra</CartListCheckoutButton>
     </CartListContainer>

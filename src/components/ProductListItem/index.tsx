@@ -11,6 +11,10 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { IProduct } from '../../types';
 import { SkeletonFlex, SkeletonLarge } from '../Feedbacks/style';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { addToCart, updateTotal } from '../../store/cart';
+import toast from 'react-hot-toast';
 
 interface ProductListItemProps {
   isLoading?: boolean;
@@ -18,6 +22,16 @@ interface ProductListItemProps {
 }
 
 const ProductListItem = ({ isLoading, product }: ProductListItemProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...product, quantity: 1 }));
+    dispatch(updateTotal());
+    toast.success(`Produto adicionado ao carrinho`, {
+      duration: 1200,
+    });
+  };
+
   return (
     <ProductListItemContainer>
       {isLoading ? (
@@ -42,7 +56,9 @@ const ProductListItem = ({ isLoading, product }: ProductListItemProps) => {
       ) : (
         <ProductListItemNamePrice>
           <h1>{product.name}</h1>
-          <ProductListItemPrice>R${product.price}</ProductListItemPrice>
+          <ProductListItemPrice>
+            R${Number(product.price).toFixed()}
+          </ProductListItemPrice>
         </ProductListItemNamePrice>
       )}
 
@@ -56,7 +72,7 @@ const ProductListItem = ({ isLoading, product }: ProductListItemProps) => {
         </ProductListItemDescription>
       )}
 
-      <ProductListItemButton>
+      <ProductListItemButton disabled={isLoading} onClick={handleAddToCart}>
         <FiShoppingBag /> Comprar
       </ProductListItemButton>
     </ProductListItemContainer>
