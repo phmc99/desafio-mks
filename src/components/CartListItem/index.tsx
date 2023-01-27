@@ -24,7 +24,7 @@ const CartListItem = ({ product }: CartListItemProps) => {
         height={150}
         priority
       />
-      <h1>Apple Watch Series 4 GPS</h1>
+      <h1>Nome do Produto</h1>
       <CartListItemQuantityPrice>
         <CartListItemQuantityButton>
           <button>-</button>

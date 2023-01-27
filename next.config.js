@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['prd.place', process.env.NEXT_PUBLIC_DOMAIN_URL],
+    domains: ['prd.place', 'mks-sistemas.nyc3.digitaloceanspaces.com'],
   },
 };
 
