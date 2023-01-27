@@ -7,8 +7,6 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.primary};
-  position: fixed;
-  z-index: 2;
 `;
 
 export const HeaderLogo = styled.span`
